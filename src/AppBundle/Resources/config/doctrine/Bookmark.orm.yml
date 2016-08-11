@@ -1,0 +1,32 @@
+AppBundle\Entity\Bookmark:
+  type: entity
+  table: bookmarks
+  repositoryClass: AppBundle\Repository\BookmarkRepository
+  id:
+    id:
+      type: integer
+      generator: {strategy: AUTO}
+
+  fields:
+    url:
+      column: url
+      type: string
+      columnDefinition: VARCHAR(250) NOT NULL
+    urlHash:
+      column: url_hash
+      type: string
+      columnDefinition: CHAR(32) NOT NULL
+      unique: true
+    createAt:
+        column: create_at
+        type: datetime
+
+  oneToMany:
+    comments:
+      targetEntity: AppBundle\Entity\Comment
+      mappedBy: bookmark
+      cascade:
+        - all
+      joinColumns:
+        bookmark_id:
+          referencedColumnName: id

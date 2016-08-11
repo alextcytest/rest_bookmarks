@@ -1,0 +1,25 @@
+AppBundle\Entity\Bookmark:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: integer
+            groups: [get_bookmark, get_bookmarks]
+        url:
+            expose: true
+            type: string
+            groups: [get_bookmark, get_bookmarks]
+        urlHash:
+            expose: true
+            type: string
+            groups: [manager]
+        createAt:
+            expose: true
+            groups: [get_bookmark, get_bookmarks]
+
+    virtual_properties:
+            getComments:
+                serialized_name: comments
+                groups: [get_bookmark, get_bookmarks]
+
+

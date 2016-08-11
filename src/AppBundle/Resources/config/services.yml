@@ -1,0 +1,16 @@
+services:
+  app.url.service:
+    class: AppBundle\Service\UrlService
+
+  app.bookmark.service:
+    class: AppBundle\Service\BookmarkService
+    arguments:
+      - @doctrine.orm.entity_manager
+      - @app.url.service
+
+  app.comment.service:
+      class: AppBundle\Service\CommentService
+      arguments:
+        - @doctrine.orm.entity_manager
+
+

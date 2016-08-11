@@ -1,0 +1,25 @@
+AppBundle\Entity\Comment:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: integer
+            groups: [get_comment, get_comments, get_bookmark, get_bookmarks]
+#        ip:
+#            expose: true
+#            type: string
+#            groups: [get_comment, get_comments, get_bookmark, get_bookmarks]
+        text:
+            expose: true
+            type: string
+            groups: [get_comment, get_comments, get_bookmark, get_bookmarks]
+        createAt:
+            expose: true
+            groups: [get_comment, get_comments, get_bookmark, get_bookmarks]
+    virtual_properties:
+        getIp:
+            serialized_name: ip
+            type: string
+            groups: [get_comment, get_comments, get_bookmark, get_bookmarks]
+
+

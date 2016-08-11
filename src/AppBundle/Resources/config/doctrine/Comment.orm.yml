@@ -1,0 +1,29 @@
+AppBundle\Entity\Comment:
+  type: entity
+  table: comments
+  repositoryClass: AppBundle\Repository\CommentRepository
+  id:
+    id:
+      type: integer
+      generator: {strategy: AUTO}
+
+  fields:
+
+    ip:
+      column: ip
+      type: integer
+      nullable: false
+
+    text:
+      column: text
+      type: string
+      columnDefinition: TEXT
+      nullable: false
+    createAt:
+        column: create_at
+        type: datetime
+
+  manyToOne:
+    bookmark:
+      targetEntity: AppBundle\Entity\Bookmark
+      inversedBy: comments

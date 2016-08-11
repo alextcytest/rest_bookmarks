@@ -1,0 +1,7 @@
+.idea/
+app/cache/*
+app/config/parameters.yml
+app/logs/*
+vendor/
+composer.phar
+bin/
